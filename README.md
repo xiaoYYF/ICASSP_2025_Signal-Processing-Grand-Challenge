@@ -77,7 +77,7 @@ This script will initialize the model, set up the optimizer, and start the train
 The testing process is also included in `run.py`. After training, the model will be evaluated on the test set, and the predictions will be saved.
 
 ### Logging and Checkpoints
-Logs: Training and validation logs will be saved in the runs/ directory and can be used for monitoring progress.
+Logs: Training and validation logs will be saved in the directory and can be used for monitoring progress.
 
 Checkpoints: The model checkpoints will be saved periodically during training based on performance improvements. The following are the model checkpoints submitted with our current model:
 
