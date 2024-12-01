@@ -1,0 +1,68 @@
+version: ICASSPGC2025-8
+description: ICASSPGC2025-8
+time_version: False  # Add timestamp to version if set to true
+save_version_files: False  # Save version files in 'runs' directory if set to true
+save_version_file_patterns:
+  - "*.py"
+  - "*.yaml"
+pass_dirs:
+  - '.'
+  - '_'
+  - 'runs'
+  - 'results'
+
+# File paths
+train_json: "/home/competition/2024ICASSPGC-8/ICASSP_GC-8_3090/data/Task2/train.json"
+validation_json: "/home/competition/2024ICASSPGC-8/ICASSP_GC-8_3090/data/Task1/validation.json"
+test_json: "/home/competition/2024ICASSPGC-8/ICASSP_GC-8_3090/data/Task1/test.json"
+
+result_dir: ./results
+
+# Fixed label mappings
+meta2label:
+  "not in bed": 0
+  "in bed": 1
+label2meta:
+  "0": "not in bed"
+  "1": "in bed"
+
+# Accelerometer data preprocessing parameters
+sr: 250         # Sample rate in Hz
+n_fft: 256      # FFT window size (suitable for low sample rates)
+n_mels: 128     # Number of Mel filters
+win_length: 256 # Window length
+hop_length: 35  # Hop length
+power: 2.0
+secs: 10        # Duration of each sample (10 seconds)
+
+# Device configuration
+cuda: True
+
+# Training parameters
+random_seed: 42
+epochs: 1          # Adjust based on task
+batch_size: 32     # Suitable batch size for binary classification
+num_workers: 4     # Number of data loading processes
+lr: 1e-4           # Learning rate
+device_ids:
+  - 0
+
+# Validation and early stopping
+valid_every_epochs: 10
+early_stop_epochs: 10   # Stop early if no improvement after specified epochs
+start_save_model_epochs: 10
+save_model_interval_epochs: 5
+start_scheduler_epoch: 20
+start_valid_epoch: 100
+
+# Loss function parameters
+use_arcface: False  # Whether to use ArcFace (optional)
+m: 0.7
+s: 30
+sub_center: 1
+
+# Anomaly scoring (no GMM)
+gmm_n: False
+
+# Test model
+load_epoch: False  # Set specific epoch (e.g., 'best', 10, 100) to load model for testing
