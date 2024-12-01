@@ -1,0 +1,72 @@
+version: STgram-MFN
+description: STgram-MFN
+time_version: False # 如果设置为 true，则在版本名称中添加时间信息
+save_version_files: False # 如果设置为 true，则在 runs 目录中保存每个版本文件
+save_version_file_patterns:
+  - "*.py"
+  - "*.yaml"
+pass_dirs:
+  - '.'
+  - '_'
+  - 'runs'
+  - 'results'
+
+# 文件路径
+train_json: "/home/competition/2024ICASSPGC-8/ICASSP_GC-8_3090/data/Task2/train_v4.json"
+#train_json: "/home/competition/2024ICASSPGC-8/ICASSP_GC-8_3090/data/Task1/evalv2.json"
+validation_json: "/home/competition/2024ICASSPGC-8/ICASSP_GC-8_3090/data/Task2/test_new.json"
+test_json: "/home/competition/2024ICASSPGC-8/ICASSP_GC-8_3090/data/Task1/test.json"
+
+result_dir: ./results
+
+
+# 标签固定，直接定义meta2label和label2meta的映射
+meta2label:
+  "not in bed": 0
+  "in bed": 1
+label2meta:
+  "0": "not in bed"
+  "1": "in bed"
+
+
+
+# 加速度计数据预处理参数
+sr: 250         # 采样率为 250 Hz
+n_fft: 256      # FFT 窗口大小，适合低采样率的数据
+n_mels: 128      # 梅尔滤波器数量，适合低采样率的数据
+win_length: 256 # 窗口长度
+hop_length: 35 # 步长
+power: 2.0
+secs: 10        # 每个样本的长度为 10 秒
+
+# 设备配置
+cuda: True
+
+# 训练参数
+random_seed: 42
+epochs: 1          # 根据任务调整训练轮数
+batch_size: 64       # 二分类任务的适当 batch size
+num_workers: 4       # 数据加载进程数量
+lr: 1e-4             # 学习率
+device_ids:
+  - 0
+  - 1
+# 验证和早停设置
+valid_every_epochs: 10
+early_stop_epochs: 10   # 若指定轮数内无改进则早停
+start_save_model_epochs: 10
+save_model_interval_epochs: 5
+start_scheduler_epoch: 20
+start_valid_epoch: 100
+
+# 损失函数参数
+use_arcface: False  # 根据任务选择是否使用 ArcFace，默认不使用
+m: 0.7
+s: 30
+sub_center: 1
+
+# 异常分数（不使用 GMM）
+gmm_n: False
+
+# 测试模型
+load_epoch: False # 设置为特定数值（如 best, 10, 100）以加载对应训练周期的模型进行测试
