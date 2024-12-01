@@ -53,52 +53,49 @@ tensorboard --logdir=runs/
 
 ---
 
-## Track2
-### Prerequisites
+## Track 2
 
-Ensure you have Python 3.8+ installed. You can install all required dependencies by running:
+### Prerequisites
+Make sure you have Python 3.8+ installed. You can install all required dependencies by running the following command:
 
 ```sh
 pip install -r requirements.txt
 ```
 
 ### Configuration
+The parameters for training and evaluation are managed in the `config.yaml` file. Please edit this file according to your environment or specific requirements before running any scripts.
 
-The parameters for training and evaluation are managed in `config.yaml`. Edit this file to fit your environment or requirements before running any scripts.
+### Training and Testing the Model
 
-### Training the Model
+#### Training and Testing the Model
+Both training and testing are handled within the `run.py` script. Follow these steps:
 
-To train the model from scratch:
-
-1. Set up the training dataset using the `AccelDataset` class defined in `dataset.py`. Ensure your data is properly organized.
+1. First, set up the training dataset using the `AccelDataset` class defined in `dataset.py`. Ensure your data is properly organized.
 2. Run the `run.py` script:
 
    ```sh
    python run.py
    ```
 
-This script will initialize the model, set up the optimizer, and train the model using the `Trainer` class. Training logs are saved using TensorBoard.
+This script will initialize the model, set up the optimizer, and start the training process. The training logs will be saved and can be monitored using TensorBoard.
 
-### Testing the Model
-
-After training, use `test.py` to evaluate the model's performance:
-
-```sh
-python test.py
-```
-
-This script will load the saved model, evaluate it on the test set, and save the predictions in the `results` folder.
+The testing process is also included in `run.py`. After training, the model will be evaluated on the test set, and the predictions will be saved.
 
 ### Logging and Checkpoints
 
-- **Logs**: Saved in the `runs/` directory for monitoring training and validation.
-- **Checkpoints**: Models are saved periodically during training based on performance improvements.
+- **Logs**: Training and validation logs will be saved in the `runs/` directory and can be used for monitoring progress.
+- **Checkpoints**: The model checkpoints will be saved periodically during training based on performance improvements.
 
-You can monitor the training process using TensorBoard:
+#### Monitoring the Training Process
+You can monitor the training process using TensorBoard by running the following command:
 
 ```sh
 tensorboard --logdir=runs/
 ```
+
+This will allow you to visualize the training and validation metrics in real time.
+
+
 ---
 ## License
 This project is released under the CC BY-NC-ND 4.0 license.
