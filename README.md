@@ -77,15 +77,8 @@ This script will initialize the model, set up the optimizer, and start the train
 The testing process is also included in `run.py`. After training, the model will be evaluated on the test set, and the predictions will be saved.
 
 ### Logging and Checkpoints
-Logs: Training and validation logs will be saved in the directory and can be used for monitoring progress.
-
-Checkpoints: The model checkpoints will be saved periodically during training based on performance improvements. The following are the model checkpoints submitted with our current model:
-
-1. final_model_mixmse_mixiou_100_epoch_final_80.pth
-2. model_mixmse_mixiou_100_epoch_final_80.pth
-3. model_mixmse_mixiou_epoch_80.pth
-
-   These checkpoints correspond to the models used at the time of submission and can be used for further evaluation or fine-tuning.
+Checkpoints: We have uploaded the checkpoints used during the submission of our model. 
+These checkpoints represent the model states at the time of submission and can be used for further evaluation or fine-tuning.
 
 
 
