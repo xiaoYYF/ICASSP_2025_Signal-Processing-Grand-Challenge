@@ -51,8 +51,6 @@ You can monitor the training process using TensorBoard:
 tensorboard --logdir=runs/
 ```
 
-
-
 ---
 
 ## Track2
@@ -90,10 +88,6 @@ python test.py
 ```
 
 This script will load the saved model, evaluate it on the test set, and save the predictions in the `results` folder.
-
-### Evaluating the Model
-
-Evaluation metrics such as Balanced Accuracy (Acc_balanced) are computed using True Positive Rate (TPR) and True Negative Rate (TNR). Use the `evaluator()` function in `trainer.py` for additional evaluation and anomaly scoring.
 
 ### Logging and Checkpoints
 
