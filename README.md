@@ -78,7 +78,7 @@ The testing process is also included in `run.py`. After training, the model will
 
 ### Logging and Checkpoints
 Checkpoints: We have uploaded the checkpoints used during the submission of our model. 
-These checkpoints represent the model states at the time of submission and can be used for further evaluation or fine-tuning.
+These checkpoints represent the model states at the time of submission.
 
 
 
