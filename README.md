@@ -45,11 +45,6 @@ Evaluation metrics such as Balanced Accuracy (Acc_balanced) are computed using T
 - **Logs**: Saved in the `runs/` directory for monitoring training and validation.
 - **Checkpoints**: Models are saved periodically during training based on performance improvements.
 
-You can monitor the training process using TensorBoard:
-
-```sh
-tensorboard --logdir=runs/
-```
 
 ---
 
@@ -82,18 +77,16 @@ This script will initialize the model, set up the optimizer, and start the train
 The testing process is also included in `run.py`. After training, the model will be evaluated on the test set, and the predictions will be saved.
 
 ### Logging and Checkpoints
+Logs: Training and validation logs will be saved in the runs/ directory and can be used for monitoring progress.
 
-- **Logs**: Training and validation logs will be saved in the `runs/` directory and can be used for monitoring progress.
-- **Checkpoints**: The model checkpoints will be saved periodically during training based on performance improvements.
+Checkpoints: The model checkpoints will be saved periodically during training based on performance improvements. The following are the model checkpoints submitted with our current model:
 
-#### Monitoring the Training Process
-You can monitor the training process using TensorBoard by running the following command:
+1. final_model_mixmse_mixiou_100_epoch_final_80.pth
+2. model_mixmse_mixiou_100_epoch_final_80.pth
+3. model_mixmse_mixiou_epoch_80.pth
+These checkpoints correspond to the models used at the time of submission and can be used for further evaluation or fine-tuning.
 
-```sh
-tensorboard --logdir=runs/
-```
 
-This will allow you to visualize the training and validation metrics in real time.
 
 
 ---
