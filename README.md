@@ -84,7 +84,8 @@ Checkpoints: The model checkpoints will be saved periodically during training ba
 1. final_model_mixmse_mixiou_100_epoch_final_80.pth
 2. model_mixmse_mixiou_100_epoch_final_80.pth
 3. model_mixmse_mixiou_epoch_80.pth
-These checkpoints correspond to the models used at the time of submission and can be used for further evaluation or fine-tuning.
+
+   These checkpoints correspond to the models used at the time of submission and can be used for further evaluation or fine-tuning.
 
 
 
