@@ -76,7 +76,7 @@ def main(args):
                       scheduler=scheduler)
     # train model
     # 训练模型：如果参数中没有指定加载的模型检查点，则执行模型的训练过程
-    # trainer.train(train_dataloader)
+    trainer.train(train_dataloader)
     # if not args.load_epoch:
     #     trainer.train(train_dataloader)
     # # 测试模型：加载保存的模型权重并运行测试，同时保存评估结果
