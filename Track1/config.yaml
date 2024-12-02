@@ -40,7 +40,7 @@ cuda: True
 
 # Training parameters
 random_seed: 42
-epochs: 1          # Adjust based on task
+epochs: 300          # Adjust based on task
 batch_size: 32     # Suitable batch size for binary classification
 num_workers: 4     # Number of data loading processes
 lr: 1e-4           # Learning rate
